@@ -1,0 +1,2 @@
+Proposal file on sentiment analysis written as word documents.The proposal explain how we 
+use sentiment anlysis to review the product of shopping webiste/ecommerce webiste though it's not completed.It contains only proposal file with some extra file.
