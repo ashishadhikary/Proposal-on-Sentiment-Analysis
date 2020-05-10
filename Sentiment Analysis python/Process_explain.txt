@@ -1,0 +1,70 @@
+(1)# For removing punctuation
+#  we need to import "string"
+# import string
+
+def remove_punctuation(txt):
+    txt_nopunct="".join([c for c in txt if c not in string.punctuation])
+    "".join means don't add anything between the character
+    return txt_nopunct
+##########################
+
+(2)For removing stop words
+    import nltk
+    stopwords=nltk.corpus.stopwords.words('english')
+############################
+
+(3) For emotion counter
+from collections import Counter
+
+W=Counter(emotion_list)
+print(W)
+#############################
+
+(4) For graphs we use matplotlib
+
+Matplotlib uses to show what kind of emotion the file/text/speech contains.
+It shows different emotions with its respective graphs.
+
+import matplotlib.pyplot as plt
+plt.bar(W.keys(),W.values())
+# 'W' is variable from counter emotion list
+
+To save the graph as the image
+plt.savefig('name_of_the_fig.extension')
+plt.show() used to show the graph on the window
+
+IF emotion graph got zigzag/unmanaged then use 'subplots' to manage it properly
+    fig,ax1=plt.subplots()
+    ax1.bar(W.keys(),W.values())
+    fig.autofmt_xdate()
+################################
+
+(5) Final part(Sentiment Analysis)
+    We can use sentiment analysis package/library to find the what sentiment those text/file contain.
+
+    from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+    def sentiment_analysis(sentiment_text):
+        score=SentimentIntensityAnalyzer().polarity_scores(sentiment_text)
+        #print(score)
+        neg=score['neg']
+        pos=score['pos']
+        if neg>pos:
+            print("Sentiment is negative")
+        elif pos>neg:
+            print("Sentiment is positive")
+        else:
+            print("Sentiment is neutral")
+
+So at final point:
+    This SentimentIntensityAnalyzer() only process on the text.So we need to pass the text
+    insted of tokenized words.We pass cleaned text in this case.
+    In this case we pass "no_punct" variable to the function.
+
+
+###############################
+
+
+
+THE ALGORITHM THIS USES IS PYTHON EMOTION ALGORITHM(NOT SURE ABOUT THAT)
+
